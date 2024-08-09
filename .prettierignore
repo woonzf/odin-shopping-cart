@@ -1,0 +1,8 @@
+# Ignore .
+.*
+
+# Ignore json
+*.json
+
+# Ignore config
+*.config.js
