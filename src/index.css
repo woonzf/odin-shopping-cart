@@ -2,9 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply montserrat mx-auto w-screen bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat;
+  }
+
+  input[type="text"] {
+    @apply rounded-md indent-2 leading-loose;
+  }
+}
+
+@layer components {
+  .w-xl {
+    @apply w-full max-w-screen-xl;
+  }
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
