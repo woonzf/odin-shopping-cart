@@ -19,20 +19,33 @@ export default function Login() {
         <form className="flex flex-col gap-2">
           <div className="flex flex-col">
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" required />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              required
+              minLength={6}
+            />
           </div>
           <div className="flex flex-col">
             <label htmlFor="password">Password</label>
-            <input type="text" name="password" id="password" required />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              minLength={6}
+            />
           </div>
           {isSignUp === true && (
             <div className="flex flex-col">
               <label htmlFor="password-confirm">Confirm Password</label>
               <input
-                type="text"
+                type="password"
                 name="password-confirm"
                 id="password-confirm"
                 required
+                minLength={6}
               />
             </div>
           )}
@@ -42,19 +55,19 @@ export default function Login() {
         </form>
         <div className="mt-5 text-center">
           {isSignUp === false ? (
-            <>
+            <small>
               Don't have an account?&nbsp;
               <button className="underline" onClick={() => setIsSignUp(true)}>
                 Sign up
               </button>
-            </>
+            </small>
           ) : (
-            <>
+            <small>
               Have an account?&nbsp;
               <button className="underline" onClick={() => setIsSignUp(false)}>
                 Log in
               </button>
-            </>
+            </small>
           )}
         </div>
       </div>
