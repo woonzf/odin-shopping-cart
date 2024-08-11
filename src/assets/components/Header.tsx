@@ -9,7 +9,7 @@ export default function Header({
   cartAmount: number;
 }) {
   return (
-    <header className="fixed w-full bg-black bg-opacity-50 text-white">
+    <header className="fixed z-[99] w-full bg-black bg-opacity-50 text-white">
       <div className="w-xl mx-auto flex h-12 items-center justify-between p-3">
         <div className="text-2xl font-extrabold">MIZU</div>
         <div className="flex gap-5">
