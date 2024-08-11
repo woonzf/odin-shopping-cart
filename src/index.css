@@ -7,7 +7,7 @@
     @apply montserrat mx-auto w-screen bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat;
   }
 
-  input[type="text"] {
+  input {
     @apply rounded-md indent-2 leading-loose;
   }
 }
