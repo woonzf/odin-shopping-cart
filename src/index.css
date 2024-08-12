@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply montserrat mx-auto w-screen bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat text-dark;
+    @apply montserrat bg-theme mx-auto w-screen text-dark;
   }
 
   input {
@@ -15,6 +15,10 @@
 @layer components {
   .w-xl {
     @apply w-full max-w-screen-xl;
+  }
+
+  .bg-theme {
+    @apply bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat;
   }
 }
 
