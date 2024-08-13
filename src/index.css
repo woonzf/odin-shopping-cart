@@ -1,36 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply montserrat bg-theme mx-auto w-screen text-dark;
-  }
-
-  input {
-    @apply rounded-md indent-2 leading-loose;
-  }
-}
-
-@layer components {
-  .w-xl {
-    @apply w-full max-w-screen-xl;
-  }
-
-  .bg-theme {
-    @apply bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat;
-  }
-}
-
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
