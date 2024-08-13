@@ -2,8 +2,8 @@ import { ShoppingBag } from "lucide-react";
 
 export default function Header({ cartAmount }: { cartAmount: number }) {
   return (
-    <header className="fixed z-[98] w-full bg-dark text-light">
-      <div className="w-xl mx-auto flex h-12 items-center justify-between p-3">
+    <header className="flex h-12 items-center bg-dark text-light">
+      <div className="w-xl mx-auto flex items-center justify-between px-6">
         <div className="text-2xl font-extrabold">MIZU</div>
         <div className="flex gap-5">
           <div>Guest</div>
