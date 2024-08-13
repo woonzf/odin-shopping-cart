@@ -13,7 +13,7 @@ export default function Intro({ handleIntroEnd }: any) {
       id="intro"
     >
       <div className="w-fit overflow-hidden">
-        <div className="animate-slide-up" onAnimationEnd={endIntro} id="brand">
+        <div className="animate-slide-up" onAnimationEnd={endIntro}>
           <div className="text-8xl font-extrabold lg:text-9xl">MIZU</div>
           <div className="flex justify-between p-1.5 text-2xl lg:p-2 lg:text-3xl">
             <span>S</span>
