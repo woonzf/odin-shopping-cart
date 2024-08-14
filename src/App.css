@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-theme font-monserrat text-dark;
+    @apply min-h-screen bg-theme font-monserrat text-dark;
   }
 
   input {
@@ -15,9 +15,5 @@
 @layer components {
   .w-xl {
     @apply w-full max-w-screen-xl;
-  }
-
-  .bg-theme {
-    @apply bg-gradient-to-b from-orange-100 to-orange-200 bg-no-repeat;
   }
 }

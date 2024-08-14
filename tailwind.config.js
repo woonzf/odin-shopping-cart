@@ -10,6 +10,7 @@ export default {
         "monserrat": ["Montserrat", "sans-serif"],
       },
       colors: {
+        "theme": "#ffedd5",
         "dark": "#27272a",
         "light": "#f1f5f9",
       },
@@ -17,6 +18,7 @@ export default {
         "slide-up": "slide-up 2s 1",
         "slide-up-down": "slide-up-down 5s infinite",
         "disappear": "disappear 750ms 1s 1 forwards",
+        "appear": "disappear 750ms reverse forwards",
       },
       keyframes: {
         "slide-up": {
