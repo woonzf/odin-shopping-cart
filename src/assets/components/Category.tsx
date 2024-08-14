@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import { categories } from "./categories";
+import { categories } from "../modules/categories";
 
 export default function Category({
   handleCategoryChange,
@@ -7,8 +7,8 @@ export default function Category({
   handleCategoryChange: any;
 }) {
   return (
-    <aside className="w-[300px] portrait:w-full">
-      <div className="mb-3 flex items-center justify-between text-xl font-semibold">
+    <aside className="sticky top-12 w-[300px] self-start portrait:w-full portrait:bg-theme">
+      <div className="flex items-center justify-between py-3 text-xl font-semibold">
         <div>Category</div>
         <ChevronDown className="landscape:hidden" />
       </div>
@@ -16,7 +16,7 @@ export default function Category({
         {categories.map((category) => (
           <li key={category.id}>
             <button
-              className="w-full rounded-md bg-light px-3 py-1 text-start capitalize hover:bg-dark hover:text-light"
+              className="w-full bg-light px-3 py-1 text-start capitalize hover:bg-dark hover:text-light"
               onClick={() => handleCategoryChange(category)}
             >
               {category.name}
