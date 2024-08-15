@@ -17,3 +17,22 @@
     @apply w-full max-w-screen-xl;
   }
 }
+
+@media only screen and (orientation: portrait) {
+  #category-list {
+    height: 0;
+    transition: height 500ms ease;
+  }
+
+  #category-chevron {
+    transition: transform 500ms ease;
+  }
+
+  #category-list.open {
+    height: 200px;
+  }
+
+  #category-chevron.open {
+    transform: rotate(180deg);
+  }
+}
