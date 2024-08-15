@@ -3,6 +3,7 @@ declare module "*.png";
 type category = {
   id: number;
   name: string;
+  src: string;
 };
 
 type product = {
