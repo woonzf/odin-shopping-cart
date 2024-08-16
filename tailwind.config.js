@@ -12,7 +12,7 @@ export default {
       colors: {
         "theme": "#ffedd5",
         "dark": "#27272a",
-        "light": "#f1f5f9",
+        "light": "white",
       },
       animation: {
         "slide-up": "slide-up 2s 1",
