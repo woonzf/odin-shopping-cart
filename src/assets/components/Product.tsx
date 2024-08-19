@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Star, X } from "lucide-react";
+import { addToCart } from "../modules/cart";
 
 export default function Product({
   product,
@@ -13,19 +14,41 @@ export default function Product({
 
   function handleQuantityChange(e: any) {
     if (e) {
-      const value: any = e.target.value;
-      if (value !== quantity) {
-        if (value > 10) setQuantity(10);
-        else setQuantity(value);
-      } else if (value === "") setQuantity("");
+      const value: string = e.target.value;
+      if (value === "") setQuantity("");
+      else {
+        const valueN = +value;
+        if (valueN > 0 && valueN !== quantity) {
+          if (valueN > 10) setQuantity(10);
+          else setQuantity(valueN);
+        }
+      }
     }
-    // Todo: Escape + an - sign
+  }
+
+  function handleQuantityAdd() {
+    if (quantity >= 9) setQuantity(10);
+    else setQuantity(+quantity + 1);
+  }
+
+  function handleQuantitySubtract() {
+    if (quantity <= 2) setQuantity(1);
+    else setQuantity(+quantity - 1);
+  }
+
+  function handleAddToCart() {
+    addToCart(product, quantity);
+    setQuantity(1);
+    alert("Product added to cart successfully!");
   }
 
   return (
     <div className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-dark bg-opacity-50 pt-12">
-      <div className="relative flex h-[75%] w-full max-w-screen-md flex-col justify-evenly bg-white p-5">
-        <button className="absolute right-5 top-5" onClick={closeProduct}>
+      <div className="relative flex h-[75%] w-full max-w-screen-md flex-col justify-evenly gap-2 bg-white p-5">
+        <button
+          className="absolute right-5 top-5 z-[99]"
+          onClick={closeProduct}
+        >
           <X size={24} />
         </button>
         <div className="relative flex h-[30%] items-center justify-center">
@@ -38,23 +61,38 @@ export default function Product({
           </div>
         </div>
         <div>{product.title}</div>
-        <small>{product.description}</small>
+        <small className="overflow-auto">{product.description}</small>
         <div>$ {product.price.toFixed(2)}</div>
-        <div className="flex flex-col gap-1">
-          <label htmlFor="quantity">Quantity (Max: 10)</label>
-          <input
-            className="bg-theme"
-            type="number"
-            value={quantity}
-            name="quantity"
-            id="quantity"
-            min={1}
-            max={10}
-            onChange={handleQuantityChange}
-          />
+        <div className="flex portrait:flex-col portrait:gap-1 landscape:items-center landscape:gap-2">
+          <label htmlFor="quantity">Quantity (Max: 10):</label>
+          <div className="flex gap-1">
+            <button
+              className="w-[100px] rounded-md bg-theme hover:bg-orange-200"
+              onClick={handleQuantitySubtract}
+            >
+              -
+            </button>
+            <input
+              className="w-[100px] bg-theme text-center portrait:w-full"
+              type="text"
+              value={quantity}
+              name="quantity"
+              id="quantity"
+              onChange={handleQuantityChange}
+            />
+            <button
+              className="w-[100px] rounded-md bg-theme hover:bg-orange-200"
+              onClick={handleQuantityAdd}
+            >
+              +
+            </button>
+          </div>
         </div>
         <div>Total Price: $ {priceTotal.toFixed(2)}</div>
-        <button className="rounded-md bg-green-400 bg-opacity-50 leading-loose">
+        <button
+          className="rounded-md bg-green-400 bg-opacity-50 leading-loose hover:bg-green-500"
+          onClick={handleAddToCart}
+        >
           Add to Cart
         </button>
       </div>

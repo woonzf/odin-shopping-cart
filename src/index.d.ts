@@ -18,3 +18,16 @@ type product = {
   };
   title: string;
 };
+
+type cart = {
+  items: cartItem[];
+  quantity: number;
+  currentId: number;
+  price: number;
+};
+
+type cartItem = {
+  id: number;
+  product: product;
+  quantity: number;
+};
