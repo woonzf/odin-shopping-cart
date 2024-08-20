@@ -59,6 +59,10 @@ function updateCartQIP() {
     .toFixed(2);
 }
 
+export function getCart() {
+  return cart;
+}
+
 function getLocalStorage() {
   return JSON.parse(localStorage.getItem(localStorageName)!);
 }
