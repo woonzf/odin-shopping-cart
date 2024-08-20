@@ -21,7 +21,7 @@ export default function Store({
   return (
     <>
       <section className="flex w-full flex-col">
-        <div className="sticky top-12 bg-theme py-3 text-xl font-semibold capitalize portrait:top-24">
+        <div className="bg-theme py-3 text-xl font-semibold capitalize portrait:hidden">
           {category.name}
         </div>
         <div className="flex flex-wrap gap-2">
@@ -32,7 +32,7 @@ export default function Store({
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="flex aspect-[0.7] w-[150px] flex-col justify-between border border-light bg-light p-2 hover:border-black"
+                  className="flex aspect-[0.7] w-[150px] flex-col justify-between border border-light bg-light p-2 hover:cursor-pointer hover:border-black"
                   onClick={() => handleProductClick(product)}
                 >
                   <div className="mt-1 flex h-[50%] items-center justify-center">

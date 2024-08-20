@@ -3,8 +3,10 @@ import { categories } from "../modules/categories";
 
 export default function Category({
   handleCategoryChange,
+  category,
 }: {
   handleCategoryChange: any;
+  category: category;
 }) {
   function toggleCategory() {
     const list: any = document.querySelector("#category-list");
@@ -25,6 +27,7 @@ export default function Category({
         onClick={toggleCategory}
       >
         <div>Category</div>
+        <div className="capitalize landscape:hidden">{category.name}</div>
         <ChevronDown className="landscape:hidden" id="category-chevron" />
       </div>
       <ul className="flex flex-col gap-1 overflow-hidden" id="category-list">

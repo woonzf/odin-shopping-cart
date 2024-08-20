@@ -33,7 +33,7 @@ export default function App() {
           <Header cartAmount={cartAmount} />
           <Banner categories={categories} />
           <main className="w-xl mx-auto flex min-h-[calc(100vh-246px)] px-6 portrait:flex-col landscape:gap-10">
-            <Category handleCategoryChange={setCategory} />
+            <Category handleCategoryChange={setCategory} category={category} />
             <Store
               category={category}
               products={products}
