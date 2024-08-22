@@ -32,7 +32,6 @@ export function addToCart(product: product, quantity: number) {
 
   updateCartQIP();
   setLocalStorage(cart);
-  console.log(cart);
 }
 
 export function deleteFromCart(id: number) {
@@ -41,7 +40,6 @@ export function deleteFromCart(id: number) {
   cart.items.splice(index, 1);
   updateCartQIP();
   setLocalStorage(cart);
-  console.log(cart);
 }
 
 function updateCartQIP() {
