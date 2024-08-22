@@ -44,12 +44,14 @@ export function deleteFromCart(id: number) {
 
 function updateCartQIP() {
   const items: cartItem[] = cart.items;
+  const length = items.length;
 
   // Update quantity
-  cart.quantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  cart.quantity = length;
 
   // Update currentId
-  cart.currentId = items.length - 1;
+  if (!length) cart.currentId = 0;
+  else cart.currentId = items[length - 1].id + 1;
 
   // Update price
   cart.price = +items

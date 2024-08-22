@@ -23,73 +23,55 @@ export default function Cart() {
   }
 
   return (
-    <section className="w-xl relative mx-auto min-h-[calc(100vh-96px)] p-6">
-      <div className="flex items-center justify-between">
-        <div className="text-xl font-bold">Cart</div>
-        <Link to="/" className="flex items-center gap-2">
-          <ChevronLeft size={24} />
-          <div className="text-lg font-semibold">Back to Store</div>
-        </Link>
-      </div>
-      <table className="mt-6 w-full">
-        <thead>
-          <tr>
-            <th className="text-start">Item</th>
-            <th className="text-end">Price</th>
-            <th>Quantity</th>
-            <th className="pr-3 text-end">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.quantity === 0 && (
-            <div className="flex h-[100px] items-center font-bold">
-              No item in cart
-            </div>
-          )}
-          {cart.items.map((item) => (
-            <tr key={item.id} className="border-y-4 border-theme bg-white">
-              <td className="flex items-center gap-2">
-                <div className="flex aspect-square h-[100px] items-center justify-center p-2">
-                  <img
-                    src={item.product.image}
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <div>{item.product.title}</div>
-              </td>
-              <td className="text-end">$ {item.product.price.toFixed(2)}</td>
-              <td className="text-center">x {item.quantity}</td>
-              <td className="pr-3 text-end">$ {getSubtotal(item)}</td>
-              <td className="px-2 text-center">
-                <button onClick={() => handleDeleteItem(item.id)}>
-                  <Trash2 color="red" />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr className="text-lg">
-            <td colSpan={2}></td>
-            <th className="pl-3 text-start">Grand Total:</th>
-            <th className="h-[50px] pr-3 text-end">
-              $ {cart.price.toFixed(2)}
-            </th>
-          </tr>
-          <tr>
-            <td colSpan={2}></td>
-            <td colSpan={2}>
+    <section className="w-xl relative mx-auto flex min-h-[calc(100vh-96px)] flex-col p-6">
+      <Link to="/" className="flex items-center gap-2">
+        <ChevronLeft size={24} />
+        <div className="text-lg font-semibold">Back to Store</div>
+      </Link>
+      <div className="mt-6 text-2xl font-bold">Cart</div>
+      <div>{cart.quantity} item&#40;s&#41;</div>
+      {cart.quantity === 0 && (
+        <div className="flex h-[100px] items-center text-xl font-bold">
+          No item in cart
+        </div>
+      )}
+      {cart.items.map((item) => (
+        <div key={item.id} className="mt-2 flex gap-3 rounded-md bg-white p-3">
+          <div className="h-[100px] w-[100px]">
+            <img className="h-full object-contain" src={item.product.image} />
+          </div>
+          <div className="flex w-full flex-col justify-between">
+            <div className="flex justify-between gap-2">
+              <div className="line-clamp-2 overflow-hidden text-ellipsis">
+                {item.product.title}
+              </div>
               <button
-                className="h-[50px] w-full rounded-md bg-green-300 enabled:hover:bg-green-400 disabled:bg-opacity-50"
-                onClick={checkout}
-                disabled={cart.quantity === 0 ? true : false}
+                className="h-fit"
+                onClick={() => handleDeleteItem(item.id)}
               >
-                Checkout
+                <Trash2 size={24} color="red" />
               </button>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+            </div>
+            <div className="flex justify-between">
+              <div>$ {item.product.price.toFixed(2)}</div>
+              <div>x {item.quantity}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div className="mt-2 w-[300px] self-end portrait:w-full">
+        <div className="flex items-center justify-between">
+          <div>Sub total </div>
+          <div className="text-xl font-bold">$ {cart.price.toFixed(2)}</div>
+        </div>
+        <button
+          className="mt-2 w-full rounded-md bg-green-300 leading-loose enabled:hover:bg-green-400 disabled:opacity-50"
+          onClick={checkout}
+          disabled={cart.quantity === 0 ? true : false}
+        >
+          Checkout
+        </button>
+      </div>
     </section>
   );
 }
