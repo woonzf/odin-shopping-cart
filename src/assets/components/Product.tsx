@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Star, X } from "lucide-react";
-import { addToCart } from "../modules/cart";
+import { addToCart, getCart } from "../modules/cart";
 
 export default function Product({
   product,
@@ -10,6 +11,7 @@ export default function Product({
   closeProduct: any;
 }) {
   const [quantity, setQuantity] = useState<any>(1);
+  const [cart, setCart] = useOutletContext<[cart, any]>();
   const priceTotal: number = product.price * quantity;
 
   function handleQuantityChange(e: any) {
@@ -38,7 +40,9 @@ export default function Product({
 
   function handleAddToCart() {
     addToCart(product, quantity);
-    setQuantity(1);
+    setCart({ ...getCart() });
+    const close: any = document.querySelector("#close-product");
+    if (close) close.click();
     alert("Product added to cart successfully!");
   }
 
@@ -47,6 +51,7 @@ export default function Product({
       <div className="relative flex h-[75%] w-full max-w-screen-md flex-col justify-evenly gap-2 bg-white p-5">
         <button
           className="absolute right-5 top-5 z-[99]"
+          id="close-product"
           onClick={closeProduct}
         >
           <X size={24} />

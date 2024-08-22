@@ -5,10 +5,11 @@ import "./App.css";
 import Intro from "./assets/components/Intro";
 import Header from "./assets/components/Header";
 import Footer from "./assets/components/Footer";
+import { getCart } from "./assets/modules/cart";
 
 export default function App() {
   const [isIntroEnd, setIsIntroEnd] = useState<boolean>(false);
-  const [cartAmount, setCartAmount] = useState<number>(0);
+  const [cart, setCart] = useState<cart>(getCart());
 
   return (
     <>
@@ -16,8 +17,8 @@ export default function App() {
         <Intro handleIntroEnd={() => setIsIntroEnd(true)} />
       ) : (
         <div className="flex h-full animate-appear flex-col">
-          <Header cartAmount={cartAmount} />
-          <Outlet />
+          <Header cartAmount={cart.quantity} />
+          <Outlet context={[cart, setCart]} />
           <Footer />
         </div>
       )}
