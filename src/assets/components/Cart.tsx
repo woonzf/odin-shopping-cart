@@ -63,6 +63,7 @@ export default function Cart() {
                 <div>$ {item.product.price.toFixed(2)}</div>
                 <div>x {item.quantity}</div>
               </div>
+              <div className="self-end">$ {getSubtotal(item)}</div>
             </div>
           </div>
         ))}
@@ -70,7 +71,7 @@ export default function Cart() {
       <div className="sticky bottom-0 flex w-full justify-end bg-theme pb-6 pt-2">
         <div className="w-[300px] self-end portrait:w-full">
           <div className="flex items-center justify-between">
-            <div>Sub total</div>
+            <div>Total</div>
             <div className="text-xl font-bold">$ {cart.price.toFixed(2)}</div>
           </div>
           <button
