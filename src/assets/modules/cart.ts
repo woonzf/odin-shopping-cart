@@ -50,8 +50,8 @@ function updateCartQIP() {
   cart.quantity = length;
 
   // Update currentId
-  if (!length) cart.currentId = 0;
-  else cart.currentId = items[length - 1].id + 1;
+  if (!length) cart.currentId = -1;
+  else cart.currentId = items[length - 1].id;
 
   // Update price
   cart.price = +items
