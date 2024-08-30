@@ -48,7 +48,7 @@ export default function Product({
 
   return (
     <div className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-dark bg-opacity-50 pt-12">
-      <div className="relative flex h-[90%] w-full max-w-screen-lg gap-5 overflow-auto bg-white p-5 portrait:flex-col portrait:gap-2">
+      <div className="relative flex h-[90%] w-full max-w-screen-lg gap-5 bg-white p-5 portrait:flex-col portrait:gap-2">
         <button
           className="absolute right-5 top-5 z-[99] landscape:hidden"
           id="close-product"
@@ -75,7 +75,9 @@ export default function Product({
               <X size={24} />
             </button>
             <big className="font-bold">{product.title}</big>
-            <small>{product.description}</small>
+            <small className="h-[15vh] overflow-auto md:h-full">
+              {product.description}
+            </small>
             <div className="font-bold">$ {product.price.toFixed(2)}</div>
           </div>
           <div className="flex flex-col gap-2">
@@ -89,7 +91,7 @@ export default function Product({
                   -
                 </button>
                 <input
-                  className="w-full bg-theme text-center portrait:w-full"
+                  className="w-full bg-theme text-center"
                   type="text"
                   value={quantity}
                   name="quantity"
